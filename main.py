@@ -4,9 +4,9 @@ def bereken_prijs(aantal, prijs_per_stuk):
 
 
 favoriete_snack = input("Wat is je favoriete snack?")
-prijs_snack = input("Hoeveel kost " + favoriete_snack + " in euro's?")
+prijs_snack = float(input("Hoeveel kost " + favoriete_snack + " in euro's?"))
 favoriete_drankje = input("Wat is je favoriete drankje?")
-prijs_drankje = input("Hoeveel kost " + favoriete_drankje + " in euro's?")
+prijs_drankje = float(input("Hoeveel kost " + favoriete_drankje + " in euro's?"))
 
 while True:
   try:
@@ -17,8 +17,8 @@ while True:
   except ValueError:
     print("Dat is geen geldig getal, probeer opnieuw.")
 
-Totaal_snacks = favoriete_snack * aantal
-Totaal_drankjes = favoriete_drankje * aantal
+Totaal_snacks = prijs_snack * aantal
+Totaal_drankjes = prijs_drankje * aantal
 subtotaal = Totaal_snacks +  Totaal_drankjes
 
 if subtotaal > 20:  
