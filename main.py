@@ -1,200 +1,30 @@
-import random
-
-GALG_FASEN = [
-    """
-       -----
-       |   |
-           |
-           |
-           |
-           |
-    =========
-    """,
-    """
-       -----
-       |   |
-       O   |
-           |
-           |
-           |
-    =========
-    """,
-    """
-       -----
-       |   |
-       O   |
-       |   |
-           |
-           |
-    =========
-    """,
-    """
-       -----
-       |   |
-       O   |
-      /|   |
-           |
-           |
-    =========
-    """,
-    """
-       -----
-       |   |
-       O   |
-      /|\\  |
-           |
-           |
-    =========
-    """,
-    """
-       -----
-       |   |
-       O   |
-      /|\\  |
-      /    |
-           |
-    =========
-    """,
-    """
-       -----
-       |   |
-       O   |
-      /|\\  |
-      / \\  |
-           |
-    =========
-    """,
-]
-
-WOORDEN = [
-    "appel",
-    "banaan",
-    "computer",
-    "dinosaurus",
-    "elektriciteit",
-    "fiets",
-    "gitaar",
-    "herfst",
-    "ijsberg",
-    "jungle",
-    "kameleon",
-    "lantaarn",
-    "magneet",
-    "nachtvlinder",
-    "olifant",
-    "piraat",
-    "quiche",
-    "regenboog",
-    "schildpad",
-    "telefoon",
-    "uiltje",
-    "vliegtuig",
-    "waterval",
-    "xylofoon",
-    "yoghurt",
-    "zebra",
-    "bibliotheek",
-    "chocolade",
-    "drempel",
-    "energie",
-    "festival",
-    "gordijn",
-    "horizon",
-    "internet",
-    "journalist",
-    "koffie",
-    "lampje",
-    "muziek",
-    "nachtmerrie",
-    "oceaan",
-    "puzzel",
-    "radijs",
-    "stormen",
-    "trompet",
-    "universiteit",
-    "vogel",
-    "wolkenkrabber",
-    "kerstboom",
-    "zandkasteel",
-]
+def bereken_prijs(aantal, prijs_per_stuk):
+    """berekent de totaalprijs voor een product"""
+    return aantal * prijs_per_stuk
 
 
-def toon_welkom():
-    print("=" * 40)
-    print("     WELKOM BIJ GALGJE!")
-    print("=" * 40)
-    print()
+favoriete_snack = input("Wat is je favoriete snack?")
+prijs_snack = input("Hoeveel kost " + favoriete_snack + " in euro's?")
+favoriete_drankje = input("Wat is je favoriete drankje?")
+prijs_drankje = input("Hoeveel kost " + favoriete_drankje + " in euro's?")
 
+while True:
+  try:
+    aantal = int(input("Hoeveel combis wil je bestellen? "))
+    if aantal >= 1:
+        break
+    print("Voer een getal van minimaal 1 in.")
+  except ValueError:
+    print("Dat is geen geldig getal, probeer opnieuw.")
 
-def toon_status(galg_fase, geraad, woord_letters, fout_letters):
-    print(GALG_FASEN[galg_fase])
-    print(f"Foute letters: {', '.join(sorted(fout_letters)) if fout_letters else '-'}")
-    print()
-    weergave = " ".join(letter if letter in geraad else "_" for letter in woord_letters)
-    print(f"Woord: {weergave}")
-    print(f"Pogingen over: {6 - galg_fase}")
-    print()
+Totaal_snacks = favoriete_snack * aantal
+Totaal_drankjes = favoriete_drankje * aantal
+subtotaal = Totaal_snacks +  Totaal_drankjes
 
+if subtotaal > 20:  
+    korting = subtotaal * 0.1
 
-def speel_ronde():
-    woord = random.choice(WOORDEN)
-    woord_letters = set(woord)
-    geraad = set()
-    fout_letters = set()
-    pogingen = 12
-
-    while True:
-        toon_status(6 - pogingen, geraad, woord, fout_letters)
-
-        if woord_letters <= geraad:
-            print(f"🎉 Gefeliciteerd! Je hebt het woord geraden: '{woord.upper()}'")
-            return True
-
-        if pogingen == 0:
-            print(f"💀 Game over! Het woord was: '{woord.upper()}'")
-            return False
-        print()
-        letter = input("Raad een letter: ").lower().strip()
-        print()
-
-        if not letter:
-            print("Typ een letter!")
-            continue
-        if len(letter) != 1:
-            print("Typ slechts één letter.")
-            continue
-        if not letter.isalpha():
-            print("Typ alleen een letter (a-z).")
-            continue
-        if letter in geraad or letter in fout_letters:
-            print(f"Je hebt '{letter}' al geprobeerd!")
-            continue
-
-        if letter in woord_letters:
-            geraad.add(letter)
-            print(f"✅ Goed! '{letter}' zit in het woord.")
-        else:
-            fout_letters.add(letter)
-            pogingen -= 1
-            print(f"❌ Helaas, '{letter}' zit niet in het woord.")
-
-        print()
-
-
-def main():
-    toon_welkom()
-
-    while True:
-        gewonnen = speel_ronde()
-
-        print()
-        opnieuw = input("Nog een keer spelen? (j/n): ").lower().strip()
-        if opnieuw != "j":
-            print()
-            print("Bedankt voor het spelen! Tot de volgende keer. 👋")
-            break
-        print()
-
-
-if __name__ == "__main__":
-    main()
+print("Je hebt " + str(aantal) + " combi's besteld.")
+print("Je hebt " + str(Totaal_snacks) + " snacks besteld.")
+print("Je hebt " + str(Totaal_drankjes) + " drankjes besteld.")
+print("De subtotaal is " + str(subtotaal) + " euro.")
