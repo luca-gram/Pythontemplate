@@ -1,6 +1,6 @@
 import random
 
-WoordenGalgje = ["Python", "informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering"]
+WoordenGalgje = list("Python" "informatica" "informatiekunde" "spelletje" "aardigheidje" "scholier" "fotografie" "waardebepaling" "specialiteit" "verzekering")
 Woord = random.choice(WoordenGalgje)
 
 print("Welkom bij galgje!")
