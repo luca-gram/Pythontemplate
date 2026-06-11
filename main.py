@@ -1,30 +1,18 @@
-def bereken_prijs(aantal, prijs_per_stuk):
-    """berekent de totaalprijs voor een product"""
-    return aantal * prijs_per_stuk
+import random
+
+WoordenGalgje = ["Python", "informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering"]
+Woord = random.choice(WoordenGalgje)
+
+print("Welkom bij galgje!")
+print("Je hebt 5 pogingen om het juiste woord te raden")
+print(Woord)
 
 
-favoriete_snack = input("Wat is je favoriete snack?")
-prijs_snack = float(input("Hoeveel kost " + favoriete_snack + " in euro's?"))
-favoriete_drankje = input("Wat is je favoriete drankje?")
-prijs_drankje = float(input("Hoeveel kost " + favoriete_drankje + " in euro's?"))
 
-while True:
-  try:
-    aantal = int(input("Hoeveel combis wil je bestellen? "))
-    if aantal >= 1:
-        break
-    print("Voer een getal van minimaal 1 in.")
-  except ValueError:
-    print("Dat is geen geldig getal, probeer opnieuw.")
 
-Totaal_snacks = prijs_snack * aantal
-Totaal_drankjes = prijs_drankje * aantal
-subtotaal = Totaal_snacks +  Totaal_drankjes
 
-if subtotaal > 20:  
-    korting = subtotaal * 0.1
 
-print("Je hebt " + str(aantal) + " combi's besteld.")
-print("Je hebt " + str(Totaal_snacks) + " snacks besteld.")
-print("Je hebt " + str(Totaal_drankjes) + " drankjes besteld.")
-print("De subtotaal is " + str(subtotaal) + " euro.")
+
+
+
+
