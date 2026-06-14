@@ -11,9 +11,9 @@ def geef_geraden_letters_in_woord(woord, geraden_letters):
     return gevonden_letters
            
 WoordenGalgje = ["python", "informatica", "bart brink", "laboratorium", "struisvogel", "scholier", "dinosaurus", "toetsweek", "docent", "middelbareschool", "computer", "programmeren", "fiets", "brachiosaurus"]
-Woord = random.choice(WoordenGalgje)
 
-print(Woord)
+# De computer kiest een willekeurig woord uit de lijst
+Woord = random.choice(WoordenGalgje)
 
 pogingen = 5
 geraden_letters = set()
