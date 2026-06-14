@@ -1,5 +1,15 @@
 import random
 
+# De functie laat de geraden letters in het woord zien en de niet geranden letters als _
+def geef_geraden_letters_in_woord(woord, geraden_letters):
+    gevonden_letters = ""
+    for letter in woord:
+        if letter in geraden_letters:
+            gevonden_letters += letter
+        else:
+            gevonden_letters += "_"
+    return gevonden_letters
+           
 WoordenGalgje = ["python", "informatica", "bart brink", "laboratorium", "struisvogel", "scholier", "dinosaurus", "toetsweek", "docent", "middelbareschool", "computer", "programmeren", "fiets", "brachiosaurus"]
 Woord = random.choice(WoordenGalgje)
 
@@ -13,7 +23,7 @@ print("Het woord heeft", len(Woord), "letters")
 
 gevonden = False
 while pogingen > 0 and gevonden == False:
-   print("\nHuidige woord:", " ".join([letter if letter in geraden_letters else "_" for letter in Woord]))
+   print("\nHuidige woord:", geef_geraden_letters_in_woord(Woord, geraden_letters))
    print("Geraden letters:", " ".join(sorted(geraden_letters)))
    letter = input("Kies een letter: ").lower()
 
