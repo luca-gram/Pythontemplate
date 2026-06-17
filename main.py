@@ -20,8 +20,8 @@ def laat_pogingen_zien(pogingen):
 WoordenGalgje = ["python", "informatica", "bartbrink", "laboratorium", "struisvogel", "scholier", "dinosaurus", "toetsweek", "docent", "middelbareschool", "computer", "programmeren", "fiets", "brachiosaurus", "schaar", "bikelife"]
 
 
-OpnieuwSpelen = True
-while OpnieuwSpelen == True:
+opnieuw_spelen = True
+while opnieuw_spelen == True:
       # De computer kiest een willekeurig woord uit de lijst
    Woord = random.choice(WoordenGalgje)
    pogingen = 5
@@ -73,7 +73,7 @@ while OpnieuwSpelen == True:
    # Hier wordt ge gebruiker gevraagd of hij nog een keer wil spelen
    antwoord = input("Wil je opnieuw spelen? (ja/nee): ").lower()
    if antwoord == "ja":
-       OpnieuwSpelen = True
+       opnieuw_spelen = True
    else:
-       OpnieuwSpelen = False
+       opnieuw_spelen = False
        print("Tot de volgende keer en bedankt voor het spelen!")
