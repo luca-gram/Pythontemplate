@@ -11,17 +11,20 @@ def geef_geraden_letters_in_woord(woord, geraden_letters):
     return gevonden_letters
            
 WoordenGalgje = ["python", "informatica", "bartbrink", "laboratorium", "struisvogel", "scholier", "dinosaurus", "toetsweek", "docent", "middelbareschool", "computer", "programmeren", "fiets", "brachiosaurus"]
+OpnieuwSpelen = True
 
-# De computer kiest een willekeurig woord uit de lijst
-Woord = random.choice(WoordenGalgje)
+while OpnieuwSpelen == True:
+   # De computer kiest een willekeurig woord uit de lijst
+   Woord = random.choice(WoordenGalgje)
 
-pogingen = 5
-geraden_letters = set()
-print("Welkom bij galgje!")
-print("Je hebt 5 pogingen om het juiste woord te raden")
-print("Het woord heeft", len(Woord), "letters")
+   pogingen = 5
+   geraden_letters = set()
+   print("Welkom bij galgje!")
+   print("Je hebt 5 pogingen om het juiste woord te raden")
+   print("Het woord heeft", len(Woord), "letters")
 
 gevonden = False
+
 while pogingen > 0 and gevonden == False:
    print("\nHuidige woord:", geef_geraden_letters_in_woord(Woord, geraden_letters))
    print("Geraden letters:", " ".join(sorted(geraden_letters)))
@@ -56,9 +59,10 @@ while pogingen > 0 and gevonden == False:
        print("Je hebt het woord niet geraden.")
        print("Het woord was:", Woord)
 
+antwoord = input("Wil je nog een keer spelen? (Ja/Nee): ")
+if antwoord == "Ja":
+    OpnieuwSpelen = True
+elif antwoord == "Nee":
+    OpnieuwSpelen = False
+    print("Bedankt voor het spelen!")
 
-print("Wil je opnieuw spelen?")
-if input == "ja":
-    
-elif  input == "nee":
-   print("Bedankt voor het spelen!")
